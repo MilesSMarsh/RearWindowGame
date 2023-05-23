@@ -4,6 +4,7 @@
 let config = {
     type: Phaser.AUTO,
     parent: "game",
+    pixelArt: true,
     width: 800,
     height: 600,
     physics: {
