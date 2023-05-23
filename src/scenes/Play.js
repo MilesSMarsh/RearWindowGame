@@ -7,6 +7,7 @@ class Play extends Phaser.Scene {
         // load assets
         this.load.path = "assets/";
         this.load.image('gradientBG', 'gradientBG.png');
+        this.load.image('testMap', 'map2.png');
         this.load.image('dude', 'dude.png');
     }
 
@@ -17,7 +18,7 @@ class Play extends Phaser.Scene {
         // set up input
         cursors = this.input.keyboard.createCursorKeys();
 
-        this.add.image(0, 0, 'gradientBG').setOrigin(0);
+        this.add.image(0, 0, 'testMap').setOrigin(0, 0);
         this.dude = this.physics.add.sprite(100, 100, 'dude').setRandomPosition(200, 200, 2800, 2800);
 
         this.dude.body.setCollideWorldBounds(true);
