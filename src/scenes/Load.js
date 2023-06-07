@@ -17,20 +17,16 @@ class Load extends Phaser.Scene {
         });
 
         this.load.path = "assets/";
-        this.load.image('gradientBG', 'gradientBG.png');
-        this.load.image('testMap', 'map2.png');
-        this.load.image('dude', 'dude.png');
+        this.load.image('pointer', 'pointer.png');
+        this.load.image('background', 'background.png');
+        this.load.image('text_bubble', 'text.png');
+        this.load.image('person', 'person.png');
+        this.load.image('X', 'X.png');
+        this.load.image('check', 'check.png');
 
     }
 
     create() {
-        // check for local storage browser support
-        if(window.localStorage) {
-            console.log('Local storage supported');
-        } else {
-            console.log('Local storage not supported');
-        }
-
         // go to Title scene
         this.scene.start('titleScene');
     }

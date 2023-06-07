@@ -17,17 +17,16 @@ class Title extends Phaser.Scene {
             fixedWidth: 0
         }
 
-        this.add.text(200, 200, 'Title: Press E', menuConfig);
+        this.add.text(200, 200, 'Title: Press Space', menuConfig);
     
 
         //define keys
-        keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     }
 
     update() {
-        if (Phaser.Input.Keyboard.JustDown(keyE)) {
-
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
           this.scene.start('day1Scene');    
         }
       }
