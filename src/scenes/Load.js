@@ -16,6 +16,7 @@ class Load extends Phaser.Scene {
             loadingBar.destroy();
         });
 
+        //loading all the assets
         this.load.path = "assets/";
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
@@ -25,6 +26,8 @@ class Load extends Phaser.Scene {
         this.load.image('person', 'person.png');
         this.load.image('X', 'X.png');
         this.load.image('check', 'check.png');
+        this.load.audio('camera_shutter', 'camera-shutter.mp3')
+        this.load.audio('city_outdoor', 'city-traffic-outdoor.mp3')
 
     }
 

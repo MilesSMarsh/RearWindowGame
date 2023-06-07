@@ -27,6 +27,14 @@ class Day1 extends Phaser.Scene {
         //add background
         this.add.image(0, 0, 'background').setOrigin(0, 0);
 
+        //add sounds
+        this.city_outdoor = this.sound.add('city_outdoor');
+        this.camera_shutter = this.sound.add('camera_shutter');
+
+        //play music
+        this.city_outdoor.loop = true;
+        this.city_outdoor.play();
+
         //animations for people
         this.anims.create({
             key: 'shortAnim',
@@ -128,6 +136,7 @@ class Day1 extends Phaser.Scene {
 
         //move to next level
         if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            this.city_outdoor.stop();
             this.scene.start('titleScene'); //just for playtest, in the real game it'll go to night1
         }
 
@@ -154,7 +163,7 @@ class Day1 extends Phaser.Scene {
         {
             this.zoom();
         }
-        
+
         //making sure the player zooms out after the zoom has commenced
         else{
             if (cameraZoomLock == false){
@@ -170,12 +179,13 @@ class Day1 extends Phaser.Scene {
         }
     }
 
-    //functions to zoom in more and play the animations
+    //functions to zoom in more and play the animations (i'm trying to these three functions into one function that passes in objects and animations but i haven't gotten it yet)
     firstThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
             this.cameras.main.zoomTo(2, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
+            this.camera_shutter.play();
             this.person1Short.setVisible(false);
             this.person1Long.setVisible(true);
 
@@ -196,6 +206,7 @@ class Day1 extends Phaser.Scene {
             this.cameras.main.zoomTo(2, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
+            this.camera_shutter.play();
             this.person2Short.setVisible(false);
             this.person2Long.setVisible(true);
 
@@ -216,6 +227,7 @@ class Day1 extends Phaser.Scene {
             this.cameras.main.zoomTo(2, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
+            this.camera_shutter.play();
             this.person3Short.setVisible(false);
             this.person3Long.setVisible(true);
 

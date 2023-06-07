@@ -16,11 +16,12 @@ let config = {
     scale : {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [Load, Title, Day1, Night1 ,Day2, Night2, Day3, Night3]
+    scene: [Load, Title, Credits, Tutorial, Day1, Night1 ,Day2, Night2, Day3, Night3]
 }
 
 let game = new Phaser.Game(config);
 
+//variable defenitions
 let cursors = null;
 let keyENTER = null;
 let keySPACE = null;
