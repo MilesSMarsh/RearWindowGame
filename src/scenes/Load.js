@@ -17,6 +17,8 @@ class Load extends Phaser.Scene {
         });
 
         this.load.path = "assets/";
+        this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
+        this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
         this.load.image('background', 'background.png');
         this.load.image('text_bubble', 'text.png');

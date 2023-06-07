@@ -1,0 +1,20 @@
+{"frames":{
+    "person1.png":{
+        "frame":{"x":0,"y":0,"w":50,"h":70},
+        "spriteSourceSize":{"x":0,"y":0,"w":50,"h":70},
+        "sourceSize":{"w":50,"h":70}},
+    "person2.png":{
+        "frame":{"x":51,"y":0,"w":50,"h":70},
+        "spriteSourceSize":{"x":0,"y":0,"w":50,"h":70},
+        "sourceSize":{"w":50,"h":70}},
+    "person3.png":
+        {"frame":{"x":0,"y":71,"w":50,"h":70},
+        "spriteSourceSize":{"x":0,"y":0,"w":50,"h":70},
+        "sourceSize":{"w":50,"h":70}},
+    "person4.png":
+    {"frame":{"x":51,"y":71,"w":50,"h":70},
+    "spriteSourceSize":{"x":0,"y":0,"w":50,"h":70},
+    "sourceSize":{"w":50,"h":70}}},
+    "meta":{"image":"longAnimAtlas.png",
+    "size":{"w":101,"h":141},
+    "scale":1}}
