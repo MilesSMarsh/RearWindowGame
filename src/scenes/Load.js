@@ -32,6 +32,32 @@ class Load extends Phaser.Scene {
     }
 
     create() {
+
+        //animations for people
+        this.anims.create({
+            key: 'shortAnim',
+            frameRate: 2,
+            frames: this.anims.generateFrameNames('shortAnimAtlas', {
+                prefix: "person",
+                suffix: ".png",
+                start: 1,
+                end: 2,
+            }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'longAnim',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('longAnimAtlas', {
+                prefix: "person",
+                suffix: ".png",
+                start: 1,
+                end: 4,
+            }),
+            repeat: -1
+        });
+        
         // go to Title scene
         this.scene.start('titleScene');
     }

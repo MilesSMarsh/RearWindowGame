@@ -31,7 +31,7 @@ class Title extends Phaser.Scene {
     update() {
         //moving to other scenes
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-          this.scene.start('day1Scene');    
+          this.scene.start('rearwindowScene');    
         }
         if (Phaser.Input.Keyboard.JustDown(keyE)) {
             this.scene.start('creditsScene');    

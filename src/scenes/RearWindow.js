@@ -1,11 +1,16 @@
-class Day1 extends Phaser.Scene {
+class RearWindow extends Phaser.Scene {
     constructor() {
-        super("day1Scene");
+        super("rearwindowScene");
     }
 
     create() {
 
-        console.log('day1scene');
+        if (day_name == 'day1'){
+            console.log('day1scene');
+        }
+        if (day_name == 'night1'){
+            console.log('night1scene');
+        }
 
         //set up variables
         cameraLock = false;
@@ -35,54 +40,55 @@ class Day1 extends Phaser.Scene {
         this.city_outdoor.loop = true;
         this.city_outdoor.play();
 
-        //animations for people
-        this.anims.create({
-            key: 'shortAnim',
-            frameRate: 2,
-            frames: this.anims.generateFrameNames('shortAnimAtlas', {
-                prefix: "person",
-                suffix: ".png",
-                start: 1,
-                end: 2,
-            }),
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'longAnim',
-            frameRate: 4,
-            frames: this.anims.generateFrameNames('longAnimAtlas', {
-                prefix: "person",
-                suffix: ".png",
-                start: 1,
-                end: 4,
-            }),
-            repeat: -1
-        });
-
         //create the people
-        this.person = this.physics.add.staticGroup();
+        if (day_name == 'day1'){
+            this.person = this.physics.add.staticGroup();
 
-        this.person1Short = this.person.create(1050, 550, 'shortAnimAtlas');
-        this.person1Short.anims.play('shortAnim');
+            this.person1Short = this.person.create(1050, 550, 'shortAnimAtlas');
+            this.person1Short.anims.play('shortAnim');
 
-        this.person2Short = this.person.create(550,1000, 'shortAnimAtlas');
-        this.person2Short.anims.play('shortAnim');
+            this.person2Short = this.person.create(550,1000, 'shortAnimAtlas');
+            this.person2Short.anims.play('shortAnim');
 
-        this.person3Short = this.person.create(1700,150, 'shortAnimAtlas');
-        this.person3Short.anims.play('shortAnim');
+            this.person3Short = this.person.create(1700,150, 'shortAnimAtlas');
+            this.person3Short.anims.play('shortAnim');
 
-        this.person1Long = this.person.create(1050, 550, 'longAnimAtlas');
-        this.person1Long.anims.play('longAnim');
-        this.person1Long.setVisible(false);
+            this.person1Long = this.person.create(1050, 550, 'longAnimAtlas');
+            this.person1Long.anims.play('longAnim');
+            this.person1Long.setVisible(false);
 
-        this.person2Long = this.person.create(550, 1000, 'longAnimAtlas');
-        this.person2Long.anims.play('longAnim');
-        this.person2Long.setVisible(false);
+            this.person2Long = this.person.create(550, 1000, 'longAnimAtlas');
+            this.person2Long.anims.play('longAnim');
+            this.person2Long.setVisible(false);
 
-        this.person3Long = this.person.create(1700, 150, 'longAnimAtlas');
-        this.person3Long.anims.play('longAnim');
-        this.person3Long.setVisible(false);
+            this.person3Long = this.person.create(1700, 150, 'longAnimAtlas');
+            this.person3Long.anims.play('longAnim');
+            this.person3Long.setVisible(false);
+        }
+        if (day_name == 'night1'){
+            this.person = this.physics.add.staticGroup();
+
+            this.person1Short = this.person.create(700, 200, 'shortAnimAtlas');
+            this.person1Short.anims.play('shortAnim');
+
+            this.person2Short = this.person.create(550,400, 'shortAnimAtlas');
+            this.person2Short.anims.play('shortAnim');
+
+            this.person3Short = this.person.create(1700,150, 'shortAnimAtlas');
+            this.person3Short.anims.play('shortAnim');
+
+            this.person1Long = this.person.create(700, 200, 'longAnimAtlas');
+            this.person1Long.anims.play('longAnim');
+            this.person1Long.setVisible(false);
+
+            this.person2Long = this.person.create(550, 400, 'longAnimAtlas');
+            this.person2Long.anims.play('longAnim');
+            this.person2Long.setVisible(false);
+
+            this.person3Long = this.person.create(1700, 150, 'longAnimAtlas');
+            this.person3Long.anims.play('longAnim');
+            this.person3Long.setVisible(false);
+        }
 
         //add the invisible text bubble
         this.text_bubble = this.add.image(50, 100, 'text_bubble').setOrigin(0, 0);
@@ -137,7 +143,10 @@ class Day1 extends Phaser.Scene {
         //move to next level
         if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.city_outdoor.stop();
-            this.scene.start('titleScene'); //just for playtest, in the real game it'll go to night1
+            if (day_name == 'day1'){
+                day_name = 'night1';
+            }
+            this.scene.start('rearwindowScene'); //just for playtest, in the real game it'll go to night1
         }
 
         //movement
