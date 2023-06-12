@@ -16,7 +16,7 @@ let config = {
     scale : {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [Load, Title, Credits, Tutorial, Day1, Night1 ,Day2, Night2, Day3, Night3]
+    scene: [Load, Title, Credits, Tutorial, RearWindow, Victory]
 }
 
 let game = new Phaser.Game(config);
@@ -35,3 +35,4 @@ let cameraZoomLock = null;
 let nextLevelCheck1 = null;
 let nextLevelCheck2 = null;
 let nextLevelCheck3 = null;
+let day_name = 'day1';

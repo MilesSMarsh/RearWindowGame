@@ -1,6 +1,6 @@
-class Title extends Phaser.Scene {
+class Victory extends Phaser.Scene {
     constructor() {
-        super("titleScene");
+        super("victoryScene");
     }
 
     create() {
@@ -15,11 +15,11 @@ class Title extends Phaser.Scene {
             fixedWidth: 0
         }
 
+        this.add.image(0, 0, 'fall').setOrigin(0, 0).setScale(.5);
+
         //adding text
-        this.add.text(300, 200, 'Rear Window', menuConfig);
-        this.add.text(225, 250, 'Press Space to Start', menuConfig);
-        this.add.text(225, 300, 'Press Enter for Tutorial', menuConfig);
-        this.add.text(225, 350, 'Press E for Credits', menuConfig);
+        this.add.text(300, 200, 'Congratulations!!', menuConfig);
+        this.add.text(225, 250, 'Press Space to return to Title', menuConfig)
     
 
         //keybinds
@@ -31,13 +31,7 @@ class Title extends Phaser.Scene {
     update() {
         //moving to other scenes
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-          this.scene.start('rearwindowScene');    
-        }
-        if (Phaser.Input.Keyboard.JustDown(keyE)) {
-            this.scene.start('creditsScene');    
-        }
-        if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
-            this.scene.start('tutorialScene');    
+          this.scene.start('titleScene');    
         }
       }
 }
