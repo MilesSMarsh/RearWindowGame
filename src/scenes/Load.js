@@ -29,6 +29,8 @@ class Load extends Phaser.Scene {
         this.load.image('check', 'check.png');
         this.load.audio('camera_shutter', 'camera-shutter.mp3')
         this.load.audio('city_outdoor', 'city-traffic-outdoor.mp3')
+        this.load.audio('rain', 'rain.mp3');
+        this.load.audio('night', 'night.mp3')
 
     }
 

@@ -47,11 +47,23 @@ class RearWindow extends Phaser.Scene {
 
         //add sounds
         this.city_outdoor = this.sound.add('city_outdoor');
+        this.rain = this.sound.add('rain');
+        this.night = this.sound.add('night');
         this.camera_shutter = this.sound.add('camera_shutter');
 
         //play music
         this.city_outdoor.loop = true;
-        this.city_outdoor.play();
+        this.rain.loop = true;
+        this.night.loop = true;
+        if (day_name == 'day1' || day_name == 'day2' || day_name == 'day3'){
+            this.city_outdoor.play();
+        }
+        if (day_name == 'night1'){
+            this.rain.play();
+        }
+        if (day_name == 'night2' || day_name == 'night3'){
+            this.night.play();
+        }
 
         //create the people
         this.person = this.physics.add.staticGroup();
@@ -139,6 +151,8 @@ class RearWindow extends Phaser.Scene {
         //move to next level
         if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.city_outdoor.stop();
+            this.rain.stop();
+            this.night.stop();
             if (day_name == 'day1'){
                 day_name = 'night1';
                 this.scene.start('rearwindowScene');
