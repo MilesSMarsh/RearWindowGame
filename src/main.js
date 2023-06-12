@@ -16,7 +16,7 @@ let config = {
     scale : {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [Load, Title, Credits, Tutorial, RearWindow]
+    scene: [Load, Title, Credits, Tutorial, RearWindow, Victory]
 }
 
 let game = new Phaser.Game(config);

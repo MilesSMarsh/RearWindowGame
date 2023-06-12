@@ -22,6 +22,7 @@ class Load extends Phaser.Scene {
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
         this.load.image('background', 'background.png');
+        this.load.image('fall', 'rearwindowfall.png');
         this.load.image('text_bubble', 'text.png');
         this.load.image('person', 'person.png');
         this.load.image('X', 'X.png');
@@ -57,7 +58,7 @@ class Load extends Phaser.Scene {
             }),
             repeat: -1
         });
-        
+
         // go to Title scene
         this.scene.start('titleScene');
     }
