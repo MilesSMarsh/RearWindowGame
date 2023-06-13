@@ -8,8 +8,8 @@ let config = {
     type: Phaser.AUTO,
     parent: "game",
     pixelArt: true,
-    width: 1568,
-    height: 1088,
+    width: 800,
+    height: 600,
     physics: {
         default: "arcade",
     },

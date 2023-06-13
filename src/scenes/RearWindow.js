@@ -105,68 +105,68 @@ class RearWindow extends Phaser.Scene {
         if (day_name == 'day1'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1050, 550)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1700, 150)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
         if (day_name == 'night1'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 200)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 400)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1700, 150)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
         if (day_name == 'day2'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1050, 550)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1700, 150)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
         if (day_name == 'night2'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 200)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 400)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1700, 150)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
         if (day_name == 'day3'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1050, 550)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1700, 150)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
         if (day_name == 'night3'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 200)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 400)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1700, 150)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
 
         //add the invisible text bubble
-        this.text_bubble = this.add.image(50, 100, 'text_bubble').setOrigin(0, 0);
+        this.text_bubble = this.add.image(250, 300, 'text_bubble').setOrigin(0, 0).setScale(.25);
         this.text_bubble.setScrollFactor(0); //this makes it so it stays in place on the camera
         this.text_bubble.setVisible(false);
 
         //create the pointer
-        this.pointer = this.physics.add.sprite(500, 500, 'pointer');
+        this.pointer = this.physics.add.sprite(500, 500, 'pointer').setScale(.5);
         this.pointer.body.setCollideWorldBounds(true);
-        this.physics.world.bounds.setTo(70,30,1760,1030); //all these numbers are weird so that the pointer stays in the middle of the sceen at all times
+        this.physics.world.bounds.setTo(70,30,1460,1030); //all these numbers are weird so that the pointer stays in the middle of the sceen at all times
         
         //do camera stuff
         this.cameras.main.setBounds(-500, -500, 3520, 2580); //these numbers are weird for the same reason
-        this.cameras.main.setZoom(0.75);
+        this.cameras.main.setZoom(1.75);
         this.cameras.main.startFollow(this.pointer, true);
 
         //create the icons in the top left 
-        this.firstXIcon = this.add.image(0, 0, 'X').setOrigin(0, 0.5);
+        this.firstXIcon = this.add.image(200, 150, 'X').setOrigin(0, 0.5);
         this.firstXIcon.setScrollFactor(0);     
         
-        this.firstCheckIcon = this.add.image(0, 0, 'check').setOrigin(0, 0.5);
+        this.firstCheckIcon = this.add.image(200, 150, 'check').setOrigin(0, 0.5);
         this.firstCheckIcon.setScrollFactor(0);     
         this.firstCheckIcon.setVisible(false);
 
-        this.secondXIcon = this.add.image(50, 0, 'X').setOrigin(0, 0.5);
+        this.secondXIcon = this.add.image(250, 150, 'X').setOrigin(0, 0.5);
         this.secondXIcon.setScrollFactor(0); 
         
-        this.secondCheckIcon = this.add.image(50, 0, 'check').setOrigin(0, 0.5);
+        this.secondCheckIcon = this.add.image(250, 150, 'check').setOrigin(0, 0.5);
         this.secondCheckIcon.setScrollFactor(0);     
         this.secondCheckIcon.setVisible(false);
 
-        this.thirdXIcon = this.add.image(100, 0, 'X').setOrigin(0, 0.5);
+        this.thirdXIcon = this.add.image(300, 150, 'X').setOrigin(0, 0.5);
         this.thirdXIcon.setScrollFactor(0);
         
-        this.thirdCheckIcon = this.add.image(100, 0, 'check').setOrigin(0, 0.5);
+        this.thirdCheckIcon = this.add.image(300, 150, 'check').setOrigin(0, 0.5);
         this.thirdCheckIcon.setScrollFactor(0);     
         this.thirdCheckIcon.setVisible(false);
 
@@ -234,7 +234,7 @@ class RearWindow extends Phaser.Scene {
         }
 
         //movement math stuff
-        this.pointerVelocity = 500;
+        this.pointerVelocity = 300;
         pointerDirection.normalize();
         this.pointer.setVelocity(this.pointerVelocity * pointerDirection.x, this.pointerVelocity * pointerDirection.y);
 
@@ -247,7 +247,7 @@ class RearWindow extends Phaser.Scene {
         //making sure the player zooms out after the zoom has commenced
         else{
             if (cameraZoomLock == false){
-                this.cameras.main.zoomTo(.75, 1000, "Sine.easeInOut", false);
+                this.cameras.main.zoomTo(1.75, 1000, "Sine.easeInOut", false);
             }
         }
     }
@@ -255,7 +255,7 @@ class RearWindow extends Phaser.Scene {
     //zoom function
     zoom(){
         if (cameraZoomLock == false){
-            this.cameras.main.zoomTo(1.25, 1000, "Sine.easeInOut", false);
+            this.cameras.main.zoomTo(3.25, 1000, "Sine.easeInOut", false);
         }
     }
 
@@ -292,7 +292,8 @@ class RearWindow extends Phaser.Scene {
     //functions to zoom in more and play the animations (i'm trying to these three functions into one function that passes in objects and animations but i haven't gotten it yet)
     firstThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(2, 1000, "Sine.easeInOut", false);
+            this.pointer.setVisible(false);
+            this.cameras.main.zoomTo(6, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
             this.camera_shutter.play();
@@ -303,6 +304,7 @@ class RearWindow extends Phaser.Scene {
                 cameraLock = false;
                 cameraZoomLock = false;
                 nextLevelCheck1 = true;
+                this.pointer.setVisible(true);
                 this.firstXIcon.setVisible(false);
                 this.firstCheckIcon.setVisible(true);
                 this.person1Short.setVisible(true);
@@ -313,9 +315,10 @@ class RearWindow extends Phaser.Scene {
 
     secondThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(2, 1000, "Sine.easeInOut", false);
+            this.cameras.main.zoomTo(6, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
+            this.pointer.setVisible(false);
             this.camera_shutter.play();
             this.person2Short.setVisible(false);
             this.person2Long.setVisible(true);
@@ -324,6 +327,7 @@ class RearWindow extends Phaser.Scene {
                 cameraLock = false;
                 cameraZoomLock = false;
                 nextLevelCheck2 = true;
+                this.pointer.setVisible(true);
                 this.secondXIcon.setVisible(false);
                 this.secondCheckIcon.setVisible(true);
                 this.person2Short.setVisible(true);
@@ -334,10 +338,11 @@ class RearWindow extends Phaser.Scene {
 
     thirdThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(2, 1000, "Sine.easeInOut", false);
+            this.cameras.main.zoomTo(6, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
             this.camera_shutter.play();
+            this.pointer.setVisible(false);
             this.person3Short.setVisible(false);
             this.person3Long.setVisible(true);
 
@@ -345,6 +350,7 @@ class RearWindow extends Phaser.Scene {
                 cameraLock = false;
                 cameraZoomLock = false;
                 nextLevelCheck3 = true;
+                this.pointer.setVisible(true);
                 this.thirdXIcon.setVisible(false);
                 this.thirdCheckIcon.setVisible(true);
                 this.person3Short.setVisible(true);
