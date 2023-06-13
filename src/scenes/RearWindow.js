@@ -82,11 +82,23 @@ class RearWindow extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
-        if (day_name == 'day1'){
+        if (day_name == 'day2'){
             this.dog_let_down = false;
         }
         else{
             this.dog_let_down = true;
+        }
+        if (day_name == 'day3'){
+            nextLevelCheck2 = true;
+            nextLevelCheck3 = true;
+        }
+        if (day_name == 'night3'){
+            this.lisa_in_house = false;
+            this.murder_at_door = false;
+        }
+        else{
+            this.lisa_in_house = true;
+            this.murder_at_door = false;
         }
 
         //add sounds
@@ -113,33 +125,33 @@ class RearWindow extends Phaser.Scene {
         this.person = this.physics.add.staticGroup();
         if (day_name == 'day1'){
             this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
         }
         if (day_name == 'night1'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 200)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 400)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
         }
         if (day_name == 'day2'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1050, 550)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
         }
         if (day_name == 'night2'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 200)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 400)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
         }
         if (day_name == 'day3'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1050, 550)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
+            //this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
+            //this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
         }
         if (day_name == 'night3'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 200)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 400)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
         }
 
         //add the invisible text bubble
@@ -148,7 +160,7 @@ class RearWindow extends Phaser.Scene {
         this.text_bubble.setVisible(false);
 
         //create the pointer
-        this.pointer = this.physics.add.sprite(500, 500, 'pointer').setScale(.5);
+        this.pointer = this.physics.add.sprite(600, 900, 'pointer').setScale(.5);
         this.pointer.body.setCollideWorldBounds(true);
         this.physics.world.bounds.setTo(70,30,1460,1030); //all these numbers are weird so that the pointer stays in the middle of the sceen at all times
         
@@ -193,7 +205,8 @@ class RearWindow extends Phaser.Scene {
         }
 
         //move to next level
-        if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
+        //if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.city_outdoor.stop();
             this.rain.stop();
             this.night.stop();
@@ -282,7 +295,7 @@ class RearWindow extends Phaser.Scene {
     createPerson2(sAtlas, lAtlas, sAnim, lAnim, Xcoord, Ycoord){
         this.person2Short = this.person.create(Xcoord, Ycoord, sAtlas);
         this.person2Short.anims.play(sAnim);
-        if (day_name == 'day1'){
+        if (day_name == 'day2' || day_name == 'night3'){
             this.person2Short.setVisible(false);
         }
 
@@ -295,6 +308,9 @@ class RearWindow extends Phaser.Scene {
     createPerson3(sAtlas, lAtlas, sAnim, lAnim, Xcoord, Ycoord){
         this.person3Short = this.person.create(Xcoord, Ycoord, sAtlas);
         this.person3Short.anims.play(sAnim);
+        if (day_name == 'night3'){
+            this.person3Short.setVisible(false);
+        }
 
         this.person3Long = this.person.create(Xcoord, Ycoord, lAtlas);
         this.person3Long.anims.play(lAnim);
@@ -317,20 +333,23 @@ class RearWindow extends Phaser.Scene {
                     cameraLock = false;
                     cameraZoomLock = false;
                     nextLevelCheck1 = true;
-                    if (day_name == 'day1' && nextLevelCheck1 == true){
+                    if (day_name == 'day2'){
+                        this.person2Short.setVisible(true);
+                    }
+                    if (day_name == 'night3'){
                         this.person2Short.setVisible(true);
                     }
                     this.pointer.setVisible(true);
                     this.firstXIcon.setVisible(false);
                     this.firstCheckIcon.setVisible(true);
-                    if (day_name != 'day1'){
-                        this.person1Short.setVisible(true);
-                    }
                     this.person1Long.setVisible(false);
                 }, null, this);
-            if (day_name == 'day1'){
-                this.dog_let_down = true;
-            }
+                if (day_name == 'day2'){
+                    this.dog_let_down = true;
+                }
+                if (day_name == 'night3'){
+                    this.lisa_in_house = true;
+                }
             }
         }
     }
@@ -338,7 +357,7 @@ class RearWindow extends Phaser.Scene {
     secondThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
             if (!nextLevelCheck2){
-                if (this.dog_let_down == true){
+                if (this.dog_let_down == true || this.lisa_in_house == true){
                     this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
                     cameraLock = true;
                     cameraZoomLock = true;
@@ -351,6 +370,9 @@ class RearWindow extends Phaser.Scene {
                         cameraLock = false;
                         cameraZoomLock = false;
                         nextLevelCheck2 = true;
+                        if (day_name == 'night3'){
+                            this.person3Short.setVisible(true);
+                        }
                         this.pointer.setVisible(true);
                         this.secondXIcon.setVisible(false);
                         this.secondCheckIcon.setVisible(true);
