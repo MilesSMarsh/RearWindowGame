@@ -6,23 +6,58 @@ class RearWindow extends Phaser.Scene {
     create() {
 
         //printing out to make sure the player is in the right place
+        const map = this.add.tilemap('tilemapJSON');
+
+        const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
+      
+
+        const Day1Layer = map.createLayer('Day1', tileset, 0, 0);
+        Day1Layer.visible = false;
+        const Day2Layer = map.createLayer('Day2', tileset, 0, 0);
+        Day2Layer.visible = false;
+        const Day3Layer = map.createLayer('Day3', tileset, 0, 0);
+        Day3Layer.visible = false;
+        const Night1Layer = map.createLayer('Night1', tileset, 0, 0);
+        Night1Layer.visible = false;
+        const Night2Layer = map.createLayer('Night2', tileset, 0, 0);
+        Night2Layer.visible = false;
+        const Night3Layer = map.createLayer('Night3', tileset, 0, 0);
+        Night3Layer.visible = false;
+
+        map.createLayer('Building', tileset, 0, 0);
+        map.createLayer('Decoration', tileset, 0, 0);
+
+
+
         if (day_name == 'day1'){
             console.log('day1scene');
+            Day1Layer.visible = true;
         }
         if (day_name == 'night1'){
             console.log('night1scene');
+
+            Day1Layer.visible = false;
+            Night1Layer.visible = true;
         }
         if (day_name == 'day2'){
             console.log('day2scene');
+            Night1Layer.visible = false;
+            Day2Layer.visible = true;
         }
         if (day_name == 'night2'){
             console.log('night2scene');
+            Day2Layer.visible = false;
+            Night2Layer.visible = true;
         }
         if (day_name == 'day3'){
             console.log('day3scene');
+            Night2Layer.visible = false;
+            Day3Layer.visible = true;
         }
         if (day_name == 'night3'){
             console.log('night3scene');
+            Day3Layer.visible = false;
+            Night3Layer.visible = true;
         }
 
         //set up variables
@@ -43,7 +78,7 @@ class RearWindow extends Phaser.Scene {
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
         //add background
-        this.add.image(0, 0, 'background').setOrigin(0, 0);
+        //this.add.image(0, 0, 'background').setOrigin(0, 0);
 
         //add sounds
         this.city_outdoor = this.sound.add('city_outdoor');

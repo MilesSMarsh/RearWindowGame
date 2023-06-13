@@ -18,13 +18,16 @@ class Load extends Phaser.Scene {
 
         //loading all the assets
         this.load.path = "assets/";
+
+        this.load.image('tilesetImage', 'RearWindowTileSheet(32x32).png');
+        this.load.tilemapTiledJSON('tilemapJSON', '/CitySkyline.json');
+
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
         this.load.image('background', 'background.png');
         this.load.image('fall', 'rearwindowfall.png');
         this.load.image('text_bubble', 'text.png');
-        this.load.image('person', 'person.png');
         this.load.image('X', 'X.png');
         this.load.image('check', 'check.png');
         this.load.audio('camera_shutter', 'camera-shutter.mp3')
