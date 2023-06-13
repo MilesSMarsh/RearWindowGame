@@ -11,8 +11,8 @@ class RearWindow extends Phaser.Scene {
         const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
 
 
-         var test_man = this.add.sprite(440, 850, 'testMan', 0);
-        test_man.anims.play('man_looks');
+         //var test_man = this.add.sprite(440, 850, 'testMan', 0);
+        //test_man.anims.play('man_looks');
       
 
         const Day1Layer = map.createLayer('Day1', tileset, 0, 0);
@@ -123,36 +123,56 @@ class RearWindow extends Phaser.Scene {
         }
 
         //create the people
-        this.person = this.physics.add.staticGroup();
+        this.person = this.physics.add.group();
         if (day_name == 'day1'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
+            //first person is killer
+            this.createPerson1('killerSpriteSheet', 'longAnimAtlas', 'man_phone', 'longAnim', 850, 820, 985, 820)
+            this.person1Short.depth = -100;
+            this.person1Long.depth = -100;
+            //second person is lonely heart
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            //third person is dancer
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
         }
         if (day_name == 'night1'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
+            //first person is killer leaving with suitcase
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            //second person is 
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            //third person is
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
         }
         if (day_name == 'day2'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
+            //first person is dog lowered
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 750, 730, 750, 730)
+            //second person is dog digs roses
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            //third person is
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
         }
         if (day_name == 'night2'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
+            //first person is dog dies
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            //second person is smoking in darkness
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            //third person is 
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
         }
         if (day_name == 'day3'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            //this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
-            //this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
+            //first person is ship box
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            //second person is 
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            //third person is
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
         }
         if (day_name == 'night3'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850)
+            //first person is dig up roses
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            //second person is lisa in room
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            //third person is killer look at you
+            this.createPerson3('shortAnimAtlas', 'killerSpriteSheet', 'shortAnim', 'man_looks', 700, 850, 700, 850)
         }
 
         //add the invisible text bubble
@@ -283,57 +303,75 @@ class RearWindow extends Phaser.Scene {
     }
 
     //create a person function
-    createPerson1(sAtlas, lAtlas, sAnim, lAnim, Xcoord, Ycoord){
-        this.person1Short = this.person.create(Xcoord, Ycoord, sAtlas);
+    createPerson1(sAtlas, lAtlas, sAnim, lAnim, XcoordS, YcoordS, XcoordL, YcoordL){
+        this.person1Short = this.person.create(XcoordS, YcoordS, sAtlas);
         this.person1Short.anims.play(sAnim);
 
-        this.person1Long = this.person.create(Xcoord, Ycoord, lAtlas);
+        this.person1Long = this.person.create(XcoordL, YcoordL, lAtlas);
         this.person1Long.anims.play(lAnim);
         this.person1Long.setVisible(false);
     }
 
     //create a person function
-    createPerson2(sAtlas, lAtlas, sAnim, lAnim, Xcoord, Ycoord){
-        this.person2Short = this.person.create(Xcoord, Ycoord, sAtlas);
+    createPerson2(sAtlas, lAtlas, sAnim, lAnim, XcoordS, YcoordS, XcoordL, YcoordL){
+        this.person2Short = this.person.create(XcoordS, YcoordS, sAtlas);
         this.person2Short.anims.play(sAnim);
         if (day_name == 'day2' || day_name == 'night3'){
             this.person2Short.setVisible(false);
         }
 
-        this.person2Long = this.person.create(Xcoord, Ycoord, lAtlas);
+        this.person2Long = this.person.create(XcoordL, YcoordL, lAtlas);
         this.person2Long.anims.play(lAnim);
         this.person2Long.setVisible(false);
     }
 
     //creeate a person function
-    createPerson3(sAtlas, lAtlas, sAnim, lAnim, Xcoord, Ycoord){
-        this.person3Short = this.person.create(Xcoord, Ycoord, sAtlas);
+    createPerson3(sAtlas, lAtlas, sAnim, lAnim, XcoordS, YcoordS, XcoordL, YcoordL){
+        this.person3Short = this.person.create(XcoordS, YcoordS, sAtlas);
         this.person3Short.anims.play(sAnim);
         if (day_name == 'night3'){
             this.person3Short.setVisible(false);
         }
 
-        this.person3Long = this.person.create(Xcoord, Ycoord, lAtlas);
+        this.person3Long = this.person.create(XcoordL, YcoordL, lAtlas);
         this.person3Long.anims.play(lAnim);
         this.person3Long.setVisible(false);
     }
 
-    //functions to zoom in more and play the animations (i'm trying to these three functions into one function that passes in objects and animations but i haven't gotten it yet)
+    //functions to zoom in more and play the animations
     firstThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
             if (!nextLevelCheck1){
+                if (day_name == 'day1'){
+                    for (let i = 0; i < 2; i++){
+                        this.clock = this.time.delayedCall(850, () => {
+                            this.pointer.x +=1;
+                        }, null, this);
+                    }
+                }
+                if (day_name == 'day2'){
+                    for (let i = 0; i < 2; i++){
+                        this.clock = this.time.delayedCall(850, () => {
+                            this.pointer.y +=2.1;
+                            this.person1Long.y +=2.5;
+                        }, null, this);
+                    }
+                }
                 this.pointer.setVisible(false);
                 this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
                 cameraLock = true;
                 cameraZoomLock = true;
                 this.camera_shutter.play();
-                this.person1Short.setVisible(false);
+                if (day_name != 'day1'){
+                    this.person1Short.setVisible(false);
+                }
                 this.person1Long.setVisible(true);
 
                 this.clock = this.time.delayedCall(5000, () => {
                     cameraLock = false;
                     cameraZoomLock = false;
                     nextLevelCheck1 = true;
+                    this.cameras.main.startFollow(this.pointer, true);
                     if (day_name == 'day2'){
                         this.person2Short.setVisible(true);
                     }
@@ -343,7 +381,9 @@ class RearWindow extends Phaser.Scene {
                     this.pointer.setVisible(true);
                     this.firstXIcon.setVisible(false);
                     this.firstCheckIcon.setVisible(true);
-                    this.person1Long.setVisible(false);
+                    if (day_name != 'day1'){
+                        this.person1Long.setVisible(false);
+                    }
                 }, null, this);
                 if (day_name == 'day2'){
                     this.dog_let_down = true;
@@ -371,6 +411,7 @@ class RearWindow extends Phaser.Scene {
                         cameraLock = false;
                         cameraZoomLock = false;
                         nextLevelCheck2 = true;
+                        this.cameras.main.startFollow(this.pointer, true);
                         if (day_name == 'night3'){
                             this.person3Short.setVisible(true);
                         }
@@ -400,6 +441,7 @@ class RearWindow extends Phaser.Scene {
                     cameraLock = false;
                     cameraZoomLock = false;
                     nextLevelCheck3 = true;
+                    this.cameras.main.startFollow(this.pointer, true);
                     this.pointer.setVisible(true);
                     this.thirdXIcon.setVisible(false);
                     this.thirdCheckIcon.setVisible(true);

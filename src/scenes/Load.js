@@ -48,6 +48,13 @@ class Load extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 13, end: 20}),
             repeat: -1
         });
+        this.anims.create({
+            key: 'man_phone',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 1, end: 2}),
+            
+            repeat: -1
+        });
 
         //animations for people
         this.anims.create({
