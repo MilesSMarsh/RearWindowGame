@@ -9,6 +9,9 @@ class RearWindow extends Phaser.Scene {
         const map = this.add.tilemap('tilemapJSON');
 
         const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
+
+
+        this.add.sprite(440, 850, 'testMan', 0);
       
 
         const Day1Layer = map.createLayer('Day1', tileset, 0, 0);
@@ -26,6 +29,7 @@ class RearWindow extends Phaser.Scene {
 
         map.createLayer('Building', tileset, 0, 0);
         map.createLayer('Decoration', tileset, 0, 0);
+
 
 
 
@@ -59,6 +63,7 @@ class RearWindow extends Phaser.Scene {
             Day3Layer.visible = false;
             Night3Layer.visible = true;
         }
+
 
         //set up variables
         cameraLock = false;
