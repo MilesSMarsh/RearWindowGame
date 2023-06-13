@@ -108,7 +108,7 @@ class RearWindow extends Phaser.Scene {
         //create the people
         this.person = this.physics.add.staticGroup();
         if (day_name == 'day1'){
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1050, 550)
+            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 550, 1000)
             this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1400, 150)
         }
@@ -298,7 +298,7 @@ class RearWindow extends Phaser.Scene {
     firstThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
             this.pointer.setVisible(false);
-            this.cameras.main.zoomTo(6, 1000, "Sine.easeInOut", false);
+            this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
             this.camera_shutter.play();
@@ -320,7 +320,7 @@ class RearWindow extends Phaser.Scene {
 
     secondThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(6, 1000, "Sine.easeInOut", false);
+            this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
             this.pointer.setVisible(false);
@@ -343,7 +343,7 @@ class RearWindow extends Phaser.Scene {
 
     thirdThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(6, 1000, "Sine.easeInOut", false);
+            this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
             cameraLock = true;
             cameraZoomLock = true;
             this.camera_shutter.play();
