@@ -46,7 +46,6 @@ class Load extends Phaser.Scene {
             key: 'man_looks',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 13, end: 20}),
-            
             repeat: -1
         });
 
