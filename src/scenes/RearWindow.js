@@ -144,9 +144,9 @@ class RearWindow extends Phaser.Scene {
         }
         if (day_name == 'day2'){
             //first person is dog lowered
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 750, 730, 750, 730)
+            this.createPerson1('dogSpriteSheet', 'dogSpriteSheet', 'dog_basket', 'dog_lower', 750, 730, 750, 730)
             //second person is dog digs roses
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            this.createPerson2('dogSpriteSheet', 'dogSpriteSheet', 'dog_idle', 'dog_dig', 820, 1020, 820, 1020)
             //third person is
             this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
         }
@@ -344,6 +344,7 @@ class RearWindow extends Phaser.Scene {
             if (!nextLevelCheck1){
                 if (day_name == 'day1'){
                     for (let i = 0; i < 2; i++){
+                        console.log(day_name)
                         this.clock = this.time.delayedCall(850, () => {
                             this.pointer.x +=1;
                         }, null, this);
@@ -351,13 +352,17 @@ class RearWindow extends Phaser.Scene {
                 }
                 if (day_name == 'day2'){
                     for (let i = 0; i < 2; i++){
-                        this.clock = this.time.delayedCall(850, () => {
-                            this.pointer.y +=2.1;
+                        console.log(day_name)
+                        this.clock = this.time.delayedCall(825, () => {
+                            this.pointer.y +=2.6;
                             this.person1Long.y +=2.5;
                         }, null, this);
                     }
                 }
                 this.pointer.setVisible(false);
+                if (day_name == 'day2'){
+                    this.cameras.main.zoomTo(9, 1000, "Sine.easeInOut", false);
+                }
                 this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
                 cameraLock = true;
                 cameraZoomLock = true;
@@ -372,9 +377,9 @@ class RearWindow extends Phaser.Scene {
                     cameraZoomLock = false;
                     nextLevelCheck1 = true;
                     this.cameras.main.startFollow(this.pointer, true);
-                    if (day_name == 'day2'){
-                        this.person2Short.setVisible(true);
-                    }
+                    // if (day_name == 'day2'){
+                    //     this.person2Short.setVisible(true);
+                    // }
                     if (day_name == 'night3'){
                         this.person2Short.setVisible(true);
                     }
@@ -382,7 +387,15 @@ class RearWindow extends Phaser.Scene {
                     this.firstXIcon.setVisible(false);
                     this.firstCheckIcon.setVisible(true);
                     if (day_name != 'day1'){
-                        this.person1Long.setVisible(false);
+                        if (day_name == 'day2'){
+                            this.clock = this.time.delayedCall(2200, () => {
+                                this.person1Long.setVisible(false);
+                                this.person2Short.setVisible(true);
+                            }, null, this);
+                        }
+                        else{
+                            this.person1Long.setVisible(false);
+                        }
                     }
                 }, null, this);
                 if (day_name == 'day2'){

@@ -25,6 +25,7 @@ class Load extends Phaser.Scene {
         this.load.image('testMan', 'Sprite-0001.png');
 
         this.load.spritesheet('killerSpriteSheet', 'KillerSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
+        this.load.spritesheet('dogSpriteSheet', 'DogSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -52,6 +53,34 @@ class Load extends Phaser.Scene {
             key: 'man_phone',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 1, end: 2}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'dog_basket',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('dogSpriteSheet', {start: 33, end: 34}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'dog_lower',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('dogSpriteSheet', {start: 28, end: 44}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'dog_dig',
+            frameRate: 4,
+            frames: this.anims.generateFrameNumbers('dogSpriteSheet', {start: 5, end: 22}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'dog_idle',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('dogSpriteSheet', {start: 0, end: 3}),
             
             repeat: -1
         });
