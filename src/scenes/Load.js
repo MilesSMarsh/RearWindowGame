@@ -24,6 +24,7 @@ class Load extends Phaser.Scene {
 
         this.load.image('testMan', 'Sprite-0001.png');
 
+        this.load.spritesheet('killerSpriteSheet', 'KillerSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -40,6 +41,14 @@ class Load extends Phaser.Scene {
     }
 
     create() {
+
+        this.anims.create({
+            key: 'man_looks',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 13, end: 20}),
+            
+            repeat: -1
+        });
 
         //animations for people
         this.anims.create({

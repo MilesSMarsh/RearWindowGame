@@ -11,7 +11,8 @@ class RearWindow extends Phaser.Scene {
         const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
 
 
-        this.add.sprite(440, 850, 'testMan', 0);
+         var test_man = this.add.sprite(440, 850, 'testMan', 0);
+        test_man.anims.play('man_looks');
       
 
         const Day1Layer = map.createLayer('Day1', tileset, 0, 0);
