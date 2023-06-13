@@ -82,8 +82,12 @@ class RearWindow extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
-        //add background
-        //this.add.image(0, 0, 'background').setOrigin(0, 0);
+        if (day_name == 'day1'){
+            this.dog_let_down = false;
+        }
+        else{
+            this.dog_let_down = true;
+        }
 
         //add sounds
         this.city_outdoor = this.sound.add('city_outdoor');
@@ -278,6 +282,9 @@ class RearWindow extends Phaser.Scene {
     createPerson2(sAtlas, lAtlas, sAnim, lAnim, Xcoord, Ycoord){
         this.person2Short = this.person.create(Xcoord, Ycoord, sAtlas);
         this.person2Short.anims.play(sAnim);
+        if (day_name == 'day1'){
+            this.person2Short.setVisible(false);
+        }
 
         this.person2Long = this.person.create(Xcoord, Ycoord, lAtlas);
         this.person2Long.anims.play(lAnim);
@@ -297,70 +304,86 @@ class RearWindow extends Phaser.Scene {
     //functions to zoom in more and play the animations (i'm trying to these three functions into one function that passes in objects and animations but i haven't gotten it yet)
     firstThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.pointer.setVisible(false);
-            this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
-            cameraLock = true;
-            cameraZoomLock = true;
-            this.camera_shutter.play();
-            this.person1Short.setVisible(false);
-            this.person1Long.setVisible(true);
+            if (!nextLevelCheck1){
+                this.pointer.setVisible(false);
+                this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
+                cameraLock = true;
+                cameraZoomLock = true;
+                this.camera_shutter.play();
+                this.person1Short.setVisible(false);
+                this.person1Long.setVisible(true);
 
-            this.clock = this.time.delayedCall(5000, () => {
-                cameraLock = false;
-                cameraZoomLock = false;
-                nextLevelCheck1 = true;
-                this.pointer.setVisible(true);
-                this.firstXIcon.setVisible(false);
-                this.firstCheckIcon.setVisible(true);
-                this.person1Short.setVisible(true);
-                this.person1Long.setVisible(false);
-            }, null, this);
+                this.clock = this.time.delayedCall(5000, () => {
+                    cameraLock = false;
+                    cameraZoomLock = false;
+                    nextLevelCheck1 = true;
+                    if (day_name == 'day1' && nextLevelCheck1 == true){
+                        this.person2Short.setVisible(true);
+                    }
+                    this.pointer.setVisible(true);
+                    this.firstXIcon.setVisible(false);
+                    this.firstCheckIcon.setVisible(true);
+                    if (day_name != 'day1'){
+                        this.person1Short.setVisible(true);
+                    }
+                    this.person1Long.setVisible(false);
+                }, null, this);
+            if (day_name == 'day1'){
+                this.dog_let_down = true;
+            }
+            }
         }
     }
 
     secondThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
-            cameraLock = true;
-            cameraZoomLock = true;
-            this.pointer.setVisible(false);
-            this.camera_shutter.play();
-            this.person2Short.setVisible(false);
-            this.person2Long.setVisible(true);
+            if (!nextLevelCheck2){
+                if (this.dog_let_down == true){
+                    this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
+                    cameraLock = true;
+                    cameraZoomLock = true;
+                    this.pointer.setVisible(false);
+                    this.camera_shutter.play();
+                    this.person2Short.setVisible(false);
+                    this.person2Long.setVisible(true);
 
-            this.clock = this.time.delayedCall(5000, () => {
-                cameraLock = false;
-                cameraZoomLock = false;
-                nextLevelCheck2 = true;
-                this.pointer.setVisible(true);
-                this.secondXIcon.setVisible(false);
-                this.secondCheckIcon.setVisible(true);
-                this.person2Short.setVisible(true);
-                this.person2Long.setVisible(false);
-            }, null, this);
+                    this.clock = this.time.delayedCall(5000, () => {
+                        cameraLock = false;
+                        cameraZoomLock = false;
+                        nextLevelCheck2 = true;
+                        this.pointer.setVisible(true);
+                        this.secondXIcon.setVisible(false);
+                        this.secondCheckIcon.setVisible(true);
+                        this.person2Short.setVisible(true);
+                        this.person2Long.setVisible(false);
+                    }, null, this);
+                }
+            }
         }
     }
 
     thirdThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
-            this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
-            cameraLock = true;
-            cameraZoomLock = true;
-            this.camera_shutter.play();
-            this.pointer.setVisible(false);
-            this.person3Short.setVisible(false);
-            this.person3Long.setVisible(true);
+            if (!nextLevelCheck3){
+                this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
+                cameraLock = true;
+                cameraZoomLock = true;
+                this.camera_shutter.play();
+                this.pointer.setVisible(false);
+                this.person3Short.setVisible(false);
+                this.person3Long.setVisible(true);
 
-            this.clock = this.time.delayedCall(5000, () => {
-                cameraLock = false;
-                cameraZoomLock = false;
-                nextLevelCheck3 = true;
-                this.pointer.setVisible(true);
-                this.thirdXIcon.setVisible(false);
-                this.thirdCheckIcon.setVisible(true);
-                this.person3Short.setVisible(true);
-                this.person3Long.setVisible(false);
-            }, null, this);
+                this.clock = this.time.delayedCall(5000, () => {
+                    cameraLock = false;
+                    cameraZoomLock = false;
+                    nextLevelCheck3 = true;
+                    this.pointer.setVisible(true);
+                    this.thirdXIcon.setVisible(false);
+                    this.thirdCheckIcon.setVisible(true);
+                    this.person3Short.setVisible(true);
+                    this.person3Long.setVisible(false);
+                }, null, this);
+            }
         }
     }
 }
