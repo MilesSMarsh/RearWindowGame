@@ -229,6 +229,7 @@ class RearWindow extends Phaser.Scene {
         //show the text bubble
         if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3){
             if (day_name == 'night3'){
+                this.night.stop();
                 this.scene.start('victoryScene');
                 day_name = 'day1';
             }
@@ -245,27 +246,27 @@ class RearWindow extends Phaser.Scene {
             this.night.stop();
             if (day_name == 'day1'){
                 day_name = 'night1';
-                this.scene.start('rearwindowScene');
+                this.scene.start('transitionScene');
                 return;
             }
             if (day_name == 'night1'){
                 day_name = 'day2';
-                this.scene.start('rearwindowScene');
+                this.scene.start('transitionScene');
                 return;
             }
             if (day_name == 'day2'){
                 day_name = 'night2';
-                this.scene.start('rearwindowScene');
+                this.scene.start('transitionScene');
                 return;
             }
             if (day_name == 'night2'){
                 day_name = 'day3';
-                this.scene.start('rearwindowScene');
+                this.scene.start('transitionScene');
                 return;
             }
             if (day_name == 'day3'){
                 day_name = 'night3';
-                this.scene.start('rearwindowScene');
+                this.scene.start('transitionScene');
                 return;
             } 
         }

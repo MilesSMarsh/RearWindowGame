@@ -28,6 +28,7 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('dogSpriteSheet', 'DogSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('wifeSpriteSheet', 'WifeSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('womanSpriteSheet', 'WomanSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
+        this.load.spritesheet('TransitionSpriteSheet', 'transitionSpriteSheet.png', {frameWidth: 800, frameHeight: 600});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -45,6 +46,18 @@ class Load extends Phaser.Scene {
 
     create() {
 
+        this.anims.create({
+            key: 'day_trans',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('TransitionSpriteSheet', {start: 0, end: 4}),
+            //repeat: -1
+        });
+        this.anims.create({
+            key: 'night_trans',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('TransitionSpriteSheet', {start: 5, end: 9}),
+            //repeat: -1
+        });
         this.anims.create({
             key: 'man_looks',
             frameRate: 2,
