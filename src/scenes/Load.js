@@ -113,6 +113,13 @@ class Load extends Phaser.Scene {
             repeat: -1
         });
         this.anims.create({
+            key: 'dog_dead',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('dogSpriteSheet', {start: 45, end: 45}),
+            
+            repeat: -1
+        });
+        this.anims.create({
             key: 'wife_idle',
             frameRate: 4,
             frames: this.anims.generateFrameNumbers('wifeSpriteSheet', {start: 0, end: 3}),

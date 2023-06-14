@@ -152,7 +152,7 @@ class RearWindow extends Phaser.Scene {
         }
         if (day_name == 'night2'){
             //first person is dog dies
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            this.createPerson1('dogSpriteSheet', 'dogSpriteSheet', 'dog_dead', 'dog_dead', 700, 1020, 700, 1020)
             //second person is smoking in darkness
             this.createPerson2('killerSpriteSheet', 'killerSpriteSheet', 'man_smoking', 'man_smoking', 850, 820, 850, 820)
             //third person is  piano party
@@ -160,7 +160,9 @@ class RearWindow extends Phaser.Scene {
         }
         if (day_name == 'day3'){
             //first person is ship box
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            this.createPerson1('killerSpriteSheet', 'killerSpriteSheet', 'man_suitcase_idle', 'man_suitcase', 1005, 820, 1005, 820)
+            this.person1Short.depth = -100;
+            this.person1Long.depth = -100;
             //second person is 
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
             //third person is
@@ -368,6 +370,14 @@ class RearWindow extends Phaser.Scene {
                         }, null, this);
                     }
                 }
+                if (day_name == 'day3'){
+                    for (let i = 0; i < 2; i++){
+                        this.clock = this.time.delayedCall(825, () => {
+                            this.pointer.x -=1.2;
+                            this.person1Long.x -=2;
+                        }, null, this);
+                    }
+                }
                 this.pointer.setVisible(false);
                 if (day_name == 'day2'){
                     this.cameras.main.zoomTo(10, 1000, "Sine.easeInOut", false);
@@ -401,6 +411,9 @@ class RearWindow extends Phaser.Scene {
                         }
                         else{
                             this.person1Long.setVisible(false);
+                        }
+                        if (day_name == 'night2'){
+                            this.person1Long.setVisible(true);
                         }
                     }
                 }, null, this);
