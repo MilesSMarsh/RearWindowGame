@@ -26,6 +26,7 @@ class Load extends Phaser.Scene {
 
         this.load.spritesheet('killerSpriteSheet', 'KillerSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('dogSpriteSheet', 'DogSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
+        this.load.spritesheet('wifeSpriteSheet', 'WifeSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -50,9 +51,36 @@ class Load extends Phaser.Scene {
             repeat: -1
         });
         this.anims.create({
+            key: 'man_idle',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 0, end: 0}),
+            repeat: -1
+        });
+        this.anims.create({
             key: 'man_phone',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 1, end: 2}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'man_suitcase',
+            frameRate: 4,
+            frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 3, end: 6}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'man_suitcase_idle',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 6, end: 6}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'man_smoking',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('killerSpriteSheet', {start: 7, end: 9}),
             
             repeat: -1
         });
@@ -81,6 +109,13 @@ class Load extends Phaser.Scene {
             key: 'dog_idle',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('dogSpriteSheet', {start: 0, end: 3}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'wife_idle',
+            frameRate: 4,
+            frames: this.anims.generateFrameNumbers('wifeSpriteSheet', {start: 0, end: 3}),
             
             repeat: -1
         });
