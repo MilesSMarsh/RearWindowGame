@@ -266,6 +266,7 @@ class RearWindow extends Phaser.Scene {
             this.rain.stop();
             this.night.stop();
             this.piano.stop();
+            this.rocket.stop();
             if (day_name == 'day1'){
                 day_name = 'night1';
                 this.scene.start('transitionScene');
