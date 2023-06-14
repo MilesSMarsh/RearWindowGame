@@ -5,15 +5,9 @@ class RearWindow extends Phaser.Scene {
 
     create() {
 
-        //printing out to make sure the player is in the right place
         const map = this.add.tilemap('tilemapJSON');
 
         const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
-
-
-         //var test_man = this.add.sprite(440, 850, 'testMan', 0);
-        //test_man.anims.play('man_looks');
-      
 
         const Day1Layer = map.createLayer('Day1', tileset, 0, 0);
         Day1Layer.visible = false;
@@ -30,8 +24,6 @@ class RearWindow extends Phaser.Scene {
 
         map.createLayer('Building', tileset, 0, 0);
         map.createLayer('Decoration', tileset, 0, 0);
-
-
 
 
         if (day_name == 'day1'){
@@ -83,6 +75,7 @@ class RearWindow extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
+        //set up more variables
         if (day_name == 'day2'){
             this.dog_let_down = false;
         }
@@ -104,6 +97,7 @@ class RearWindow extends Phaser.Scene {
         this.night = this.sound.add('night');
         this.camera_shutter = this.sound.add('camera_shutter');
         this.rocket = this.sound.add('rocket');
+        this.piano = this.sound.add('piano')
 
         //play music
         this.city_outdoor.loop = true;
@@ -127,7 +121,9 @@ class RearWindow extends Phaser.Scene {
             this.person1Short.depth = -100;
             this.person1Long.depth = -100;
             //second person is lonely heart (meet)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
+            this.person2Short.depth = -100;
+            this.person2Long.depth = -100;
             //third person is dancer (meet)
             this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin', 470, 835, 470, 835)
             this.person3Short.depth = -100;
@@ -137,8 +133,16 @@ class RearWindow extends Phaser.Scene {
             //first person is killer leaving with suitcase
             this.createPerson1('killerSpriteSheet', 'killerSpriteSheet', 'man_suitcase_idle', 'man_suitcase', 370, 1000, 370, 1000)
             //second person is lonely heart (fake date)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
+            this.person2Short.depth = -100;
+            this.person2Long.depth = -100;
             //third person is dancer (people over)
+            this.new_person1 = this.person.create(445, 835, 'manSpriteSheet');
+            this.new_person1.anims.play('man1');
+            this.new_person1.depth = -100;
+            this.new_person2 = this.person.create(460, 835, 'manSpriteSheet');
+            this.new_person2.anims.play('man2');
+            this.new_person2.depth = -100;
             this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin', 430, 835, 430, 835)
             this.person3Short.depth = -100;
             this.person3Long.depth = -100;
@@ -149,7 +153,9 @@ class RearWindow extends Phaser.Scene {
             //second person is dog digs roses
             this.createPerson2('dogSpriteSheet', 'dogSpriteSheet', 'dog_idle', 'dog_dig', 820, 1020, 820, 1020)
             //third person is lonely heart (pills)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
+            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
+            this.person3Short.depth = -100;
+            this.person3Long.depth = -100;
         }
         if (day_name == 'night2'){
             //first person is dog dies
@@ -157,7 +163,11 @@ class RearWindow extends Phaser.Scene {
             //second person is smoking in darkness
             this.createPerson2('killerSpriteSheet', 'killerSpriteSheet', 'man_smoking', 'man_smoking', 850, 820, 850, 820)
             //third person is  piano party
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
+            this.back = this.add.image(1300, 420, 'back_color')
+            this.back.depth = -101;
+            this.createPerson3('pianoSpriteSheet', 'pianoSpriteSheet', 'piano_play', 'piano_play', 1430, 420, 1430, 420)
+            this.person3Short.depth = -100;
+            this.person3Long.depth = -100;
         }
         if (day_name == 'day3'){
             //first person is ship box
@@ -247,6 +257,7 @@ class RearWindow extends Phaser.Scene {
             this.city_outdoor.stop();
             this.rain.stop();
             this.night.stop();
+            this.piano.stop();
             if (day_name == 'day1'){
                 day_name = 'night1';
                 this.scene.start('transitionScene');
@@ -473,6 +484,9 @@ class RearWindow extends Phaser.Scene {
                             this.pointer.x +=.7;
                         }, null, this);
                     }
+                }
+                if (day_name == 'night2'){
+                    this.piano.play();
                 }
                 if (day_name == 'day3'){
                     this.rocket.play();
