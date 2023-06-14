@@ -122,7 +122,7 @@ class RearWindow extends Phaser.Scene {
             this.person1Short.depth = -100;
             this.person1Long.depth = -100;
             //second is lonely heart
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
+            this.createPerson2('lonelySpriteSheet', 'lonelySpriteSheet', 'lonely_idle', 'lonely_drink', 850, 950, 850, 950)
             this.person2Short.depth = -100;
             this.person2Long.depth = -100;
             //third is dancer
@@ -134,7 +134,7 @@ class RearWindow extends Phaser.Scene {
             //first is killer leaving with suitcase
             this.createPerson1('killerSpriteSheet', 'killerSpriteSheet', 'man_suitcase_idle', 'man_suitcase', 370, 1000, 370, 1000)
             //second is lonely heart (fake date)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
+            this.createPerson2('lonelySpriteSheet', 'lonelySpriteSheet', 'lonely_idle', 'lonely_walk', 850, 950, 850, 950)
             this.person2Short.depth = -100;
             this.person2Long.depth = -100;
             //third is dancer (people over)
@@ -154,7 +154,7 @@ class RearWindow extends Phaser.Scene {
             //second is dog digs roses
             this.createPerson2('dogSpriteSheet', 'dogSpriteSheet', 'dog_idle', 'dog_dig', 820, 1020, 820, 1020)
             //third is lonely heart (pills)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
+            this.createPerson3('lonelySpriteSheet', 'lonelySpriteSheet', 'lonely_idle', 'lonely_pills', 850, 950, 850, 950)
             this.person3Short.depth = -100;
             this.person3Long.depth = -100;
         }

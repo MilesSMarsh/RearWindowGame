@@ -32,6 +32,7 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('ballerinaSpriteSheet', 'ballerinaSpriteSheet.png', {frameWidth: 64, frameHeight: 64});
         this.load.spritesheet('menSpriteSheet', 'Men.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('pianoSpriteSheet', 'pianoSprite_sheet.png', {frameWidth: 64, frameHeight: 64});
+        this.load.spritesheet('lonelySpriteSheet', 'Mrs_lonelyHeart.png', {frameWidth: 32, frameHeight: 64});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -204,6 +205,34 @@ class Load extends Phaser.Scene {
             key: 'piano_play',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('pianoSpriteSheet', {start: 0, end: 1}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'lonely_idle',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('lonelySpriteSheet', {start: 11, end: 12}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'lonely_drink',
+            frameRate: 3,
+            frames: this.anims.generateFrameNumbers('lonelySpriteSheet', {start: 1, end: 10}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'lonely_pills',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('lonelySpriteSheet', {start: 15, end: 22}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'lonely_walk',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('lonelySpriteSheet', {start: 13, end: 14}),
             
             repeat: -1
         });
