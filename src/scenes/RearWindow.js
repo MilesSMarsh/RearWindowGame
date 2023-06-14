@@ -89,10 +89,6 @@ class RearWindow extends Phaser.Scene {
         else{
             this.dog_let_down = true;
         }
-        if (day_name == 'day3'){
-            nextLevelCheck2 = true;
-            nextLevelCheck3 = true;
-        }
         if (day_name == 'night3'){
             this.lisa_in_house = false;
             this.murder_at_door = false;
@@ -107,6 +103,7 @@ class RearWindow extends Phaser.Scene {
         this.rain = this.sound.add('rain');
         this.night = this.sound.add('night');
         this.camera_shutter = this.sound.add('camera_shutter');
+        this.rocket = this.sound.add('rocket');
 
         //play music
         this.city_outdoor.loop = true;
@@ -132,7 +129,9 @@ class RearWindow extends Phaser.Scene {
             //second person is lonely heart (meet)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
             //third person is dancer (meet)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
+            this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin', 470, 835, 470, 835)
+            this.person3Short.depth = -100;
+            this.person3Long.depth = -100;
         }
         if (day_name == 'night1'){
             //first person is killer leaving with suitcase
@@ -140,7 +139,9 @@ class RearWindow extends Phaser.Scene {
             //second person is lonely heart (fake date)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
             //third person is dancer (people over)
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
+            this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin', 430, 835, 430, 835)
+            this.person3Short.depth = -100;
+            this.person3Long.depth = -100;
         }
         if (day_name == 'day2'){
             //first person is dog lowered
@@ -165,8 +166,10 @@ class RearWindow extends Phaser.Scene {
             this.person1Long.depth = -100;
             //second person is 
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
-            //third person is
-            this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 700, 850, 700, 850)
+            //third person is ballerina rocket
+            this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin_fast', 470, 845, 470, 845)
+            this.person3Short.depth = -100;
+            //this.person3Long.depth = -100;
         }
         if (day_name == 'night3'){
             //first person is dig up roses
@@ -471,6 +474,15 @@ class RearWindow extends Phaser.Scene {
                         }, null, this);
                     }
                 }
+                if (day_name == 'day3'){
+                    this.rocket.play();
+                    for (let i = 0; i < 2; i++){
+                        this.clock = this.time.delayedCall(850, () => {
+                            this.pointer.y -=15;
+                            this.person3Long.y -=15;
+                        }, null, this);
+                    }
+                }
                 if (day_name == 'night3'){
                     this.cameras.main.zoomTo(8, 1000, "Sine.easeInOut", false);
                 }
@@ -492,7 +504,9 @@ class RearWindow extends Phaser.Scene {
                     this.pointer.setVisible(true);
                     this.thirdXIcon.setVisible(false);
                     this.thirdCheckIcon.setVisible(true);
-                    this.person3Short.setVisible(true);
+                    if (day_name != 'day3'){
+                        this.person3Short.setVisible(true);
+                    }
                     this.person3Long.setVisible(false);
                 }, null, this);
             }

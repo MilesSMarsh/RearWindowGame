@@ -4,7 +4,12 @@ class Transition extends Phaser.Scene {
     }
 
     create() {
+        this.scream = this.sound.add('scream');
         this.background = this.physics.add.group();
+
+        if (day_name == 'night1'){
+            this.scream.play();
+        }
 
         if (day_name == 'night1' || day_name == 'night2' || day_name == 'night3'){
             this.sunrise = this.background.create(0, 0, 'TransitionSpriteSheet').setOrigin(0);

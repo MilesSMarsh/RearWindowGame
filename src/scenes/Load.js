@@ -29,6 +29,7 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('wifeSpriteSheet', 'WifeSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('womanSpriteSheet', 'WomanSpriteSheet.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('TransitionSpriteSheet', 'transitionSpriteSheet.png', {frameWidth: 800, frameHeight: 600});
+        this.load.spritesheet('ballerinaSpriteSheet', 'ballerinaSpriteSheet.png', {frameWidth: 64, frameHeight: 64});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -41,6 +42,8 @@ class Load extends Phaser.Scene {
         this.load.audio('city_outdoor', 'city-traffic-outdoor.mp3')
         this.load.audio('rain', 'rain.mp3');
         this.load.audio('night', 'night.mp3')
+        this.load.audio('scream', 'girl_scream.mp3');
+        this.load.audio('rocket', 'large-rocket-engine.mp3')
 
     }
 
@@ -151,6 +154,27 @@ class Load extends Phaser.Scene {
             key: 'woman_dig',
             frameRate: 4,
             frames: this.anims.generateFrameNumbers('womanSpriteSheet', {start: 3, end: 4}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'ballerina_bounce',
+            frameRate: 3,
+            frames: this.anims.generateFrameNumbers('ballerinaSpriteSheet', {start: 0, end: 5}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'ballerina_spin',
+            frameRate: 5,
+            frames: this.anims.generateFrameNumbers('ballerinaSpriteSheet', {start: 6, end: 13}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'ballerina_spin_fast',
+            frameRate: 400,
+            frames: this.anims.generateFrameNumbers('ballerinaSpriteSheet', {start: 6, end: 13}),
             
             repeat: -1
         });
