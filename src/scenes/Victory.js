@@ -15,6 +15,7 @@ class Victory extends Phaser.Scene {
             fixedWidth: 0
         }
 
+        //add image
         this.add.image(0, 0, 'fall').setOrigin(0, 0).setScale(.5);
 
         //adding text

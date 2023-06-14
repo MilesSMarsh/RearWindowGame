@@ -5,10 +5,11 @@ class RearWindow extends Phaser.Scene {
 
     create() {
 
+        //set up all the tilemap stuff
         const map = this.add.tilemap('tilemapJSON');
-
         const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
 
+        //make the tilemap layers for each day and night
         const Day1Layer = map.createLayer('Day1', tileset, 0, 0);
         Day1Layer.visible = false;
         const Day2Layer = map.createLayer('Day2', tileset, 0, 0);
@@ -22,10 +23,11 @@ class RearWindow extends Phaser.Scene {
         const Night3Layer = map.createLayer('Night3', tileset, 0, 0);
         Night3Layer.visible = false;
 
+        //seperate tilemap layers
         map.createLayer('Building', tileset, 0, 0);
         map.createLayer('Decoration', tileset, 0, 0);
 
-
+        //print out the day and load the correct part of thetilemap
         if (day_name == 'day1'){
             console.log('day1scene');
             Day1Layer.visible = true;
@@ -56,7 +58,6 @@ class RearWindow extends Phaser.Scene {
             Day3Layer.visible = false;
             Night3Layer.visible = true;
         }
-
 
         //set up variables
         cameraLock = false;
@@ -116,27 +117,27 @@ class RearWindow extends Phaser.Scene {
         //create the people
         this.person = this.physics.add.group();
         if (day_name == 'day1'){
-            //first person is killer and wife (meet)
+            //first is killer and wife
             this.createPerson1('killerSpriteSheet', 'wifeSpriteSheet', 'man_phone', 'wife_idle', 850, 820, 995, 820)
             this.person1Short.depth = -100;
             this.person1Long.depth = -100;
-            //second person is lonely heart (meet)
+            //second is lonely heart
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
             this.person2Short.depth = -100;
             this.person2Long.depth = -100;
-            //third person is dancer (meet)
+            //third is dancer
             this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin', 470, 835, 470, 835)
             this.person3Short.depth = -100;
             this.person3Long.depth = -100;
         }
         if (day_name == 'night1'){
-            //first person is killer leaving with suitcase
+            //first is killer leaving with suitcase
             this.createPerson1('killerSpriteSheet', 'killerSpriteSheet', 'man_suitcase_idle', 'man_suitcase', 370, 1000, 370, 1000)
-            //second person is lonely heart (fake date)
+            //second is lonely heart (fake date)
             this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
             this.person2Short.depth = -100;
             this.person2Long.depth = -100;
-            //third person is dancer (people over)
+            //third is dancer (people over)
             this.new_person1 = this.person.create(445, 835, 'manSpriteSheet');
             this.new_person1.anims.play('man1');
             this.new_person1.depth = -100;
@@ -148,21 +149,21 @@ class RearWindow extends Phaser.Scene {
             this.person3Long.depth = -100;
         }
         if (day_name == 'day2'){
-            //first person is dog lowered
+            //first is dog lowered
             this.createPerson1('dogSpriteSheet', 'dogSpriteSheet', 'dog_basket', 'dog_lower', 750, 730, 750, 730)
-            //second person is dog digs roses
+            //second is dog digs roses
             this.createPerson2('dogSpriteSheet', 'dogSpriteSheet', 'dog_idle', 'dog_dig', 820, 1020, 820, 1020)
-            //third person is lonely heart (pills)
+            //third is lonely heart (pills)
             this.createPerson3('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 850, 950, 850, 950)
             this.person3Short.depth = -100;
             this.person3Long.depth = -100;
         }
         if (day_name == 'night2'){
-            //first person is dog dies
+            //first is dog dies
             this.createPerson1('dogSpriteSheet', 'dogSpriteSheet', 'dog_dead', 'dog_dead', 700, 1020, 700, 1020)
             //second person is smoking in darkness
             this.createPerson2('killerSpriteSheet', 'killerSpriteSheet', 'man_smoking', 'man_smoking', 850, 820, 850, 820)
-            //third person is  piano party
+            //third is piano party
             this.back = this.add.image(1300, 420, 'back_color')
             this.back.depth = -101;
             this.createPerson3('pianoSpriteSheet', 'pianoSpriteSheet', 'piano_play', 'piano_play', 1430, 420, 1430, 420)
@@ -170,25 +171,26 @@ class RearWindow extends Phaser.Scene {
             this.person3Long.depth = -100;
         }
         if (day_name == 'day3'){
-            //first person is ship box
+            //first is ship box
             this.createPerson1('killerSpriteSheet', 'killerSpriteSheet', 'man_suitcase_idle', 'man_suitcase', 1005, 820, 1005, 820)
             this.person1Short.depth = -100;
             this.person1Long.depth = -100;
-            //second person is 
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
-            //third person is ballerina rocket
+            //second is CARPET!!!!!! (woot woot)
+            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1250, 550, 1250, 550)
+            this.person2Short.depth = -100;
+            this.person2Long.depth = -100;
+            //third is ballerina rocket
             this.createPerson3('ballerinaSpriteSheet', 'ballerinaSpriteSheet', 'ballerina_bounce', 'ballerina_spin_fast', 470, 845, 470, 845)
             this.person3Short.depth = -100;
-            //this.person3Long.depth = -100;
         }
         if (day_name == 'night3'){
-            //first person is dig up roses
+            //first is dig up roses
             this.createPerson1('womanSpriteSheet', 'womanSpriteSheet', 'woman_idle', 'woman_dig', 820, 1020, 820, 1020)
-            //second person is lisa in room
+            //second is lisa in room
             this.createPerson2('womanSpriteSheet', 'womanSpriteSheet', 'woman_idle', 'woman_dig', 860, 820, 860, 820)
             this.person2Short.depth = -100;
             this.person2Long.depth = -100;
-            //third person is killer look at you
+            //third is killer look at you
             this.createPerson3('killerSpriteSheet', 'killerSpriteSheet', 'man_idle', 'man_looks', 748, 820, 830, 820)
             this.person3Short.depth = -100;
             this.person3Long.depth = -100;
@@ -444,6 +446,7 @@ class RearWindow extends Phaser.Scene {
         }
     }
 
+    //functions to zoom in more and play the animations
     secondThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
             if (!nextLevelCheck2){
@@ -475,6 +478,7 @@ class RearWindow extends Phaser.Scene {
         }
     }
 
+    //functions to zoom in more and play the animations
     thirdThingViewed(){
         if (keyENTER.isDown || keyE.isDown){
             if (!nextLevelCheck3){
