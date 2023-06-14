@@ -19,8 +19,8 @@ class Tutorial extends Phaser.Scene {
         //adding text
         this.add.text(0, 50, 'Tutorial:', menuConfig);
         this.add.text(0, 150, 'Use Arrow Keys or WASD to move', menuConfig);
-        this.add.text(0, 200, 'Hold (HOLD!!!) the E or Enter key to zoom in', menuConfig);
-        this.add.text(0, 250, 'with your camera', menuConfig);
+        this.add.text(0, 200, 'Hold (HOLD!!!) (REALLY HOLD IT!!!) the E or', menuConfig);
+        this.add.text(0, 250, 'Enter key to zoom in with your camera', menuConfig);
         this.add.text(0, 300, 'Move the camera around and look for points of', menuConfig);
         this.add.text(0, 350, 'interest', menuConfig);
         this.add.text(0, 400, 'Zoom in on the points of interest and you can', menuConfig);

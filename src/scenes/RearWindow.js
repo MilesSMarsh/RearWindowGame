@@ -260,8 +260,8 @@ class RearWindow extends Phaser.Scene {
         }
 
         //move to next level
-        //if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
-        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+        if (nextLevelCheck1 == true && nextLevelCheck2 && nextLevelCheck3 && Phaser.Input.Keyboard.JustDown(keySPACE)) {
+        //if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.city_outdoor.stop();
             this.rain.stop();
             this.night.stop();
