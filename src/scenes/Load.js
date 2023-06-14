@@ -33,6 +33,7 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('menSpriteSheet', 'Men.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('pianoSpriteSheet', 'pianoSprite_sheet.png', {frameWidth: 64, frameHeight: 64});
         this.load.spritesheet('lonelySpriteSheet', 'Mrs_lonelyHeart.png', {frameWidth: 32, frameHeight: 64});
+        this.load.spritesheet('carpetSpriteSheet', 'carpet.png', {frameWidth: 32, frameHeight: 64});
         this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
         this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
@@ -233,6 +234,20 @@ class Load extends Phaser.Scene {
             key: 'lonely_walk',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('lonelySpriteSheet', {start: 13, end: 14}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'carpet_idle',
+            frameRate: 2,
+            frames: this.anims.generateFrameNumbers('carpetSpriteSheet', {start: 0, end: 5}),
+            
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'carpet_fast',
+            frameRate: 400,
+            frames: this.anims.generateFrameNumbers('carpetSpriteSheet', {start: 0, end: 5}),
             
             repeat: -1
         });

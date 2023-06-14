@@ -166,6 +166,12 @@ class RearWindow extends Phaser.Scene {
             //third is piano party
             this.back = this.add.image(1300, 420, 'back_color')
             this.back.depth = -101;
+            this.new_person1 = this.person.create(1480, 420, 'manSpriteSheet');
+            this.new_person1.anims.play('man1');
+            this.new_person1.depth = -100;
+            this.new_person2 = this.person.create(1470, 420, 'manSpriteSheet');
+            this.new_person2.anims.play('man3');
+            this.new_person2.depth = -100;
             this.createPerson3('pianoSpriteSheet', 'pianoSpriteSheet', 'piano_play', 'piano_play', 1430, 420, 1430, 420)
             this.person3Short.depth = -100;
             this.person3Long.depth = -100;
@@ -176,7 +182,7 @@ class RearWindow extends Phaser.Scene {
             this.person1Short.depth = -100;
             this.person1Long.depth = -100;
             //second is CARPET!!!!!! (woot woot)
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 1250, 550, 1250, 550)
+            this.createPerson2('carpetSpriteSheet', 'carpetSpriteSheet', 'carpet_idle', 'carpet_fast', 1240, 550, 1240, 550)
             this.person2Short.depth = -100;
             this.person2Long.depth = -100;
             //third is ballerina rocket
@@ -451,6 +457,14 @@ class RearWindow extends Phaser.Scene {
         if (keyENTER.isDown || keyE.isDown){
             if (!nextLevelCheck2){
                 if (this.dog_let_down == true || this.lisa_in_house == true){
+                    if (day_name == 'night1'){
+                        for (let i = 0; i < 2; i++){
+                            this.clock = this.time.delayedCall(825, () => {
+                                this.pointer.x -=.8;
+                                this.person2Long.x -=.8;
+                            }, null, this);
+                        }
+                    }
                     this.cameras.main.zoomTo(5, 1000, "Sine.easeInOut", false);
                     cameraLock = true;
                     cameraZoomLock = true;
