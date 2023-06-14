@@ -51,18 +51,16 @@ class Load extends Phaser.Scene {
     }
 
     create() {
-
+        //animations
         this.anims.create({
             key: 'day_trans',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('TransitionSpriteSheet', {start: 0, end: 4}),
-            //repeat: -1
         });
         this.anims.create({
             key: 'night_trans',
             frameRate: 2,
             frames: this.anims.generateFrameNumbers('TransitionSpriteSheet', {start: 5, end: 9}),
-            //repeat: -1
         });
         this.anims.create({
             key: 'man_looks',
@@ -210,7 +208,6 @@ class Load extends Phaser.Scene {
             repeat: -1
         });
 
-        //animations for people
         this.anims.create({
             key: 'shortAnim',
             frameRate: 2,

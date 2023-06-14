@@ -1,5 +1,11 @@
-//Rear Window Game
+//Rear Window
 //Made by Miles Marsh and Sean Rowley
+//The five major components of phaser that we used were 
+//1. The physics systems, to work on moving around and doing collions
+//2. Text Objects, to Show the Credits, Tutorial, and text bubbles in game
+//3. The Animation Manager, which we used to show all the animations throughout the game
+//4. Tilemaps, which we used to create the backdrop of the entire game
+//5. Cameras, which we used to follow the pointer around and lock onto and move to view important events
 
 'use strict';
 
