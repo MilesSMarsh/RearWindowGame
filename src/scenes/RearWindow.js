@@ -170,9 +170,11 @@ class RearWindow extends Phaser.Scene {
         }
         if (day_name == 'night3'){
             //first person is dig up roses
-            this.createPerson1('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 500, 850, 500, 850)
+            this.createPerson1('womanSpriteSheet', 'womanSpriteSheet', 'woman_idle', 'woman_dig', 820, 1020, 820, 1020)
             //second person is lisa in room
-            this.createPerson2('shortAnimAtlas', 'longAnimAtlas', 'shortAnim', 'longAnim', 600, 850, 600, 850)
+            this.createPerson2('womanSpriteSheet', 'womanSpriteSheet', 'woman_idle', 'woman_dig', 860, 820, 860, 820)
+            this.person2Short.depth = -100;
+            this.person2Long.depth = -100;
             //third person is killer look at you
             this.createPerson3('killerSpriteSheet', 'killerSpriteSheet', 'man_idle', 'man_looks', 748, 820, 830, 820)
             this.person3Short.depth = -100;
