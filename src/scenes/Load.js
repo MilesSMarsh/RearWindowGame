@@ -34,8 +34,6 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('pianoSpriteSheet', 'pianoSprite_sheet.png', {frameWidth: 64, frameHeight: 64});
         this.load.spritesheet('lonelySpriteSheet', 'Mrs_lonelyHeart.png', {frameWidth: 32, frameHeight: 64});
         this.load.spritesheet('carpetSpriteSheet', 'carpet.png', {frameWidth: 32, frameHeight: 64});
-        this.load.atlas('shortAnimAtlas', 'shortAnimAtlas.png', 'shortAnimAtlas.json')
-        this.load.atlas('longAnimAtlas', 'longAnimAtlas.png', 'longAnimAtlas.json')
         this.load.image('pointer', 'pointer.png');
         this.load.image('back_color', 'back_color.png');
         this.load.image('fall', 'rearwindowfall.png');
@@ -249,30 +247,6 @@ class Load extends Phaser.Scene {
             frameRate: 400,
             frames: this.anims.generateFrameNumbers('carpetSpriteSheet', {start: 0, end: 5}),
             
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'shortAnim',
-            frameRate: 2,
-            frames: this.anims.generateFrameNames('shortAnimAtlas', {
-                prefix: "person",
-                suffix: ".png",
-                start: 1,
-                end: 2,
-            }),
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'longAnim',
-            frameRate: 4,
-            frames: this.anims.generateFrameNames('longAnimAtlas', {
-                prefix: "person",
-                suffix: ".png",
-                start: 1,
-                end: 4,
-            }),
             repeat: -1
         });
 
