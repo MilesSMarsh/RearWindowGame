@@ -484,8 +484,14 @@ class RearWindow extends Phaser.Scene {
                         this.pointer.setVisible(true);
                         this.secondXIcon.setVisible(false);
                         this.secondCheckIcon.setVisible(true);
-                        this.person2Short.setVisible(true);
-                        this.person2Long.setVisible(false);
+                        if (day_name == 'night1'){
+                            this.person2Short.setVisible(false);
+                            this.person2Long.setVisible(false);
+                        }
+                        else{
+                            this.person2Short.setVisible(true);
+                            this.person2Long.setVisible(false);
+                        }
                     }, null, this);
                 }
             }
