@@ -52,7 +52,7 @@ class Title extends Phaser.Scene {
             this.scene.start('tutorialScene');    
         }
         if (Phaser.Input.Keyboard.JustDown(keyBACKSPACE)) {
-            this.scene.start('bonuswfcScene');    
+            this.scene.start('wfctutorialScene');    
         }
       }
 }

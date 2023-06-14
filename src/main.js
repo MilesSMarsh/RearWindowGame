@@ -22,7 +22,7 @@ let config = {
     scale : {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [Load, Title, Credits, Tutorial, BonusWFC, RearWindow, Transition, Victory]
+    scene: [Load, Title, Credits, Tutorial, WFCTutorial, BonusWFC, RearWindow, Transition, Victory]
 }
 
 let game = new Phaser.Game(config);
