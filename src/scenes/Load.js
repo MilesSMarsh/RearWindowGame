@@ -21,8 +21,7 @@ class Load extends Phaser.Scene {
 
 
 
-        this.load.image('tilesetImage2', './RearWindowTileSheet(32x32).png');
-        this.load.tilemapTiledJSON('tilemapJSON', './testMap.json');
+        this.load.tilemapTiledJSON('tilemapJSON2', './testMap.json');
 
         this.load.image('tilesetImage', 'RearWindowTileSheet(32x32).png');
         this.load.tilemapTiledJSON('tilemapJSON', '/CitySkyline.json');

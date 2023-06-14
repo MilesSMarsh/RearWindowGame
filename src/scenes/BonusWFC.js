@@ -7,13 +7,13 @@ class BonusWFC extends Phaser.Scene {
         //keybinds
         keyBACKSPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.BACKSPACE);
 
-        const map = this.add.tilemap('tilemapJSON');
-        this.map2 = this.add.tilemap('tilemapJSON');
+        const mapTest = this.add.tilemap('tilemapJSON2');
+        this.map2 = this.add.tilemap('tilemapJSON2');
 
-        const tileset2 = this.map2.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage2');
-        const tileset = map.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage2');
+        const tileset2 = this.map2.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
+        const tileset = mapTest.addTilesetImage('RearWindowTileSheet(32x32)', 'tilesetImage');
       
-        const firstLayer = map.createLayer('firstLayer', tileset, 0, 0);
+        const firstLayer = mapTest.createLayer('firstLayer', tileset, 0, 0);
         this.firstLayer2 = this.map2.createLayer('firstLayer', tileset2, 320, 0);
 
         this.weightArr = new Array();
@@ -106,7 +106,7 @@ class BonusWFC extends Phaser.Scene {
 
         // step 1: Read the input bitmap and count NxN patterns.
 
-        this.rules = this.iterateOverMap(map, firstLayer);
+        this.rules = this.iterateOverMap(mapTest, firstLayer);
         console.log(this.rules)
 
 
@@ -122,10 +122,10 @@ class BonusWFC extends Phaser.Scene {
         // while(!this.complete){
             var tileCounter = 0;
 
-            this.weightMap = new Array(map.height);
-            for (var i = 0; i < map.height; i++) {
-                this.weightMap[i] = new Array(map.width); 
-                for(var j = 0; j < map.width; j++){
+            this.weightMap = new Array(mapTest.height);
+            for (var i = 0; i < mapTest.height; i++) {
+                this.weightMap[i] = new Array(mapTest.width); 
+                for(var j = 0; j < mapTest.width; j++){
 
                     //step 3: Initialize the wave in the completely unobserved state, i.e. with all the boolean coefficients being true.
 
